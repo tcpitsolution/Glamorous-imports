@@ -1,0 +1,2 @@
+import { useEffect, useState } from 'react'
+export default function ScrollProgress(){const [p,setP]=useState(0);useEffect(()=>{const f=()=>{const d=document.documentElement;setP(d.scrollHeight-d.clientHeight?window.scrollY/(d.scrollHeight-d.clientHeight)*100:0)};window.addEventListener('scroll',f,{passive:true});return()=>window.removeEventListener('scroll',f)},[]);return <div className="scroll-progress" style={{width:`${p}%`}}/>}
